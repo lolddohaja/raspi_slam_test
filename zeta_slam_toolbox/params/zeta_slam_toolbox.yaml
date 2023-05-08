@@ -1,0 +1,39 @@
+# slam_toolbox.yaml
+slam_toolbox:
+  ros__parameters:
+    # The plugin to use for the SLAM algorithm
+    plugin: "slam_toolbox::AsyncGridSLAMProcessor"
+
+    # General settings
+    # The frame associated with the map
+    map_frame: "map"
+    # The frame associated with the robot's odometry
+    odom_frame: "odom"
+    # The frame associated with the robot's base
+    base_frame: "base_link"
+    # The topic on which the robot receives laser scans
+    scan_topic: "/scan"
+    # The operating mode of the SLAM toolbox (e.g., Localization, Mapping, Lidar Odometry, Continuous, Lifelong.)
+    mode: "Mapping"
+
+    # Map settings
+    # The interval (in seconds) at which the map is updated
+    map_update_interval: 1.0
+    # The resolution (in meters) of the map's grid cells
+    map_resolution: 0.1
+    # The maximum range (in meters) of the laser scanner
+    max_laser_range: 10.0
+    # The minimum time interval (in seconds) between processing consecutive laser scans
+    minimum_time_interval: 0.1
+  
+    # Scan matching settings
+    # Whether to use scan matching for SLAM
+    use_scan_matching: true
+    # The type of scan matcher to use (e.g., "csm" for Canonical Scan Matcher)
+    scan_matcher_type: "csm"
+    # The solver plugin used to optimize the SLAM problem
+    solver_plugin: "solver_plugins::CeresSolver"
+
+    # Loop closure settings
+    # Whether to use loop closure for SLAM
+    use_loop_closure: true
